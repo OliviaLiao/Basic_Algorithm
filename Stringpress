@@ -1,0 +1,35 @@
+//compress string if more than 2 continuous character, use countxcharacter to replace the original one
+public static String removedup(String str) {
+		if (str == null || str.length() == 0)
+			return null;
+		if(str.length()==1)
+			return str;
+		String res = "";
+		char tmp = 0;
+		int count = 1;
+		for (int i = 1; i < str.length(); i++) {
+			if (str.charAt(i) == str.charAt(i - 1)) {
+				tmp = str.charAt(i - 1);
+				count++;
+			}
+			if (str.charAt(i) != str.charAt(i - 1) && count > 2) {
+				res += count + "x";
+				count = 1;
+			}
+			if (str.charAt(i) != str.charAt(i - 1) && count == 1) {
+				res += str.charAt(i - 1);
+			}
+			if (str.charAt(i) != str.charAt(i - 1) && count == 2) {
+				res += str.charAt(i - 1);
+				res += str.charAt(i - 1);
+				count = 1;
+			}
+			if (i == str.length() - 1 && str.charAt(i) == str.charAt(i - 1)) {
+				res += count + "x" + tmp;
+			}
+			if (i == str.length() - 1 && str.charAt(i) != str.charAt(i - 1)) {
+				res += str.charAt(i);
+			}
+		}
+		return res;
+	}
