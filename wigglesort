@@ -1,0 +1,19 @@
+//a<=b>=c<=d>=e
+public static int[] wigglesort(int[] num) {
+		if(num.length==0||num==null)
+			return null;
+		for(int i=1;i<num.length;i++){
+			if(i%2==1&&num[i]<num[i-1]){
+				int tmp=num[i];
+				num[i]=num[i-1];
+				num[i-1]=tmp;
+			}
+			if(i%2==0&&num[i]>num[i-1]){
+				int tmp=num[i];
+				num[i]=num[i-1];
+				num[i-1]=tmp;
+			}
+			
+		}
+		return num;
+	}
