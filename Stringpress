@@ -1,4 +1,5 @@
 //compress string if more than 2 continuous character, use countxcharacter to replace the original one
+//abbbbccd->a4xbccd
 public static String removedup(String str) {
 		if (str == null || str.length() == 0)
 			return null;
